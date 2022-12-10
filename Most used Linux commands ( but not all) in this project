@@ -1,0 +1,28 @@
+sudo apt update
+sudo apt install apache2
+sudo ufw app list
+sudo ufw app info "Apache Full"
+sudo ufw allow "Apache Full"
+ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
+sudo apt install curl
+curl http://icanhazip.com
+sudo apt install mysql-server
+sudo mysql_secure_installation
+sudo mysql
+sudo apt install php libapache2-mod-php php-mysql
+sudo nano /etc/apache2/mods-enabled/dir.conf
+sudo systemctl restart apache2
+sudo mkdir /var/www/your_domain
+sudo chown -R $USER:$USER /var/www/your_domain
+sudo chmod -R 755 /var/www/your_domain
+nano /var/www/your_domain/index.html
+sudo nano /etc/apache2/sites-available/your_domain.conf
+sudo a2ensite your_domain.conf
+sudo a2dissite 000-default.conf
+sudo apache2ctl configtest
+sudo nano /var/www/your_domain/info.php
+sudo apt install certbot python3-certbot-apache
+sudo nano /etc/apache2/sites-available/your_domain.conf
+sudo apache2ctl configtest
+sudo systemctl reload apache2
+sudo certbot --apache
